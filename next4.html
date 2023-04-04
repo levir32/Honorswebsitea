@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Key Information</title>
+	<style>
+		body {
+			background-image: url('https://pbs.twimg.com/media/E5DFznUWUAILrfD.jpg');
+			background-size: cover;
+			text-align: center;
+			font-family: Arial, sans-serif;
+			color: white;
+			margin-top: 100px;
+		}
+		.box {
+			background-color: rgba(0, 0, 0, 0.5);
+			padding: 20px;
+			border-radius: 10px;
+			margin: auto;
+			width: 50%;
+		}
+		input[type="text"] {
+			background-color: white;
+			color: black;
+			padding: 10px;
+			border-radius: 5px;
+			border: none;
+			width: 200px;
+			margin-top: 10px;
+			margin-bottom: 20px;
+		}
+		input[type="submit"] {
+			background-color: #4CAF50;
+			color: white;
+			padding: 10px 20px;
+			border: none;
+			border-radius: 5px;
+			cursor: pointer;
+			margin-top: 10px;
+			font-size: 16px;
+		}
+        button {
+			background-color: #f8be3d;
+			color: #000000;
+			font-size: 1.2em;
+			padding: 10px 20px;
+			margin-top: 20px;
+			border: none;
+			border-radius: 5px;
+		}
+	</style>
+</head>
+<body>
+	<div class="box">
+		<h2>Key Information</h2>
+		<form onsubmit="return false;">
+			<p>1. Also, don't forget about our meeting with <input type="text" id="answer1"> this Monday.</p>
+			<input type="submit" value="Check Answer" onclick="checkAnswer1()">
+		</form>
+		<div id="result1"></div>
+		<div id="prompt2" style="display: none;">
+			<p>2. Enter the keyword received from the interception to continue!</p>
+			<p><input type="text" id="answer2"></p>
+			<input type="submit" value="Check Answer" onclick="checkAnswer2()">
+			<div id="result2"></div>
+		</div>
+		<div id="button3" style="display: none;">
+			<a href="final.html"><button>Final Page</button></a>
+		</div>
+	</div>
+	<script>
+		function checkAnswer1() {
+			var answer1 = document.getElementById("answer1").value.trim();
+			if (answer1.toLowerCase() === "kenner john") {
+				document.getElementById("result1").innerHTML = "<p>Correct! Intercept this meeting with Kenner John at the second floor help desk at 7:15!</p>";
+				document.getElementById("prompt2").style.display = "block";
+			} else {
+				document.getElementById("result1").innerHTML = "<p>Incorrect! Try again.</p>";
+			}
+		}
+
+		function checkAnswer2() {
+			var answer2 = document.getElementById("answer2").value.trim();
+			if (answer2.toLowerCase() === "rigged") {
+				document.getElementById("result2").innerHTML = "<p>Correct! Proceed to the final page.</p>";
+				document.getElementById("button3").style.display = "block";
+			} else {
+				document.getElementById("result2").innerHTML = "<p>Incorrect! Try again.</p>";
+			}
+		}
+	</script>
+</body>
+</html>
